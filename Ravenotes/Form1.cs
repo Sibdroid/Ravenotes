@@ -18,6 +18,7 @@ namespace Ravenotes
 			InitializeComponent();
 			Input.Font = new Font(Input.Font.FontFamily, defaultFontSize);
 			FontSize.Font = new Font(Input.Font.FontFamily, defaultFontSize);
+			FontSize.KeyDown += FontSize_KeyDown;
 		}
 
 		private void IncreaseFontSize_Click(object sender, EventArgs e)
@@ -34,6 +35,25 @@ namespace Ravenotes
 			Input.Font = new Font(Input.Font.FontFamily, defaultFontSize);
 			FontSize.Text = defaultFontSize.ToString();
 			this.ActiveControl = this.Input;
+		}
+		private void FontSize_KeyDown(object  sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				int fontSize = 0;
+				bool isNumber = int.TryParse(FontSize.Text, out fontSize);
+				if (fontSize >= 1 && fontSize <= 100)
+				{
+					defaultFontSize = fontSize;
+					Input.Font = new Font(Input.Font.FontFamily, fontSize);
+					FontSize.Text = fontSize.ToString();
+					this.ActiveControl = this.Input;
+				}
+				else
+				{
+					FontSize.Text = defaultFontSize.ToString();
+				}
+			}
 		}
 	}
 }
