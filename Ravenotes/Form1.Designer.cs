@@ -32,6 +32,7 @@
 			this.FontSize = new System.Windows.Forms.TextBox();
 			this.IncreaseFontSize = new System.Windows.Forms.Button();
 			this.DecreaseFontSize = new System.Windows.Forms.Button();
+			this.FontChoice = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// Input
@@ -79,11 +80,34 @@
 			this.DecreaseFontSize.UseVisualStyleBackColor = true;
 			this.DecreaseFontSize.Click += new System.EventHandler(this.DecreaseFontSize_Click);
 			// 
+			// FontChoice
+			// 
+			this.FontChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.FontChoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.FontChoice.Font = new System.Drawing.Font("Roboto", 19.25F);
+			this.FontChoice.FormattingEnabled = true;
+			this.FontChoice.Items.AddRange(new object[] {
+            "Arial",
+            "Arial Black",
+            "Calibri",
+            "Cambria",
+            "Courier New",
+            "Georgia",
+            "Impact",
+            "Tahoma",
+            "Times New Roman",
+            "Verdana"});
+			this.FontChoice.Location = new System.Drawing.Point(88, 333);
+			this.FontChoice.Name = "FontChoice";
+			this.FontChoice.Size = new System.Drawing.Size(240, 40);
+			this.FontChoice.TabIndex = 4;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(384, 421);
+			this.Controls.Add(this.FontChoice);
 			this.Controls.Add(this.DecreaseFontSize);
 			this.Controls.Add(this.IncreaseFontSize);
 			this.Controls.Add(this.FontSize);
@@ -101,6 +125,7 @@
 		private System.Windows.Forms.TextBox FontSize;
 		private System.Windows.Forms.Button IncreaseFontSize;
 		private System.Windows.Forms.Button DecreaseFontSize;
+		private System.Windows.Forms.ComboBox FontChoice;
 	}
 }
 

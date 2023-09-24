@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+   
 namespace Ravenotes
 {
 	public partial class Form1 : Form
@@ -17,8 +17,10 @@ namespace Ravenotes
 		{
 			InitializeComponent();
 			Input.Font = new Font(Input.Font.FontFamily, defaultFontSize);
-			FontSize.Font = new Font(Input.Font.FontFamily, defaultFontSize);
 			FontSize.KeyDown += FontSize_KeyDown;
+			FontChoice.SelectedItem = "Arial";
+			FontChoice.Click += FontChoice_Click;
+			FontChoice.SelectionChangeCommitted += FontChoice_SelectionChangeCommitted;
 		}
 
 		private void IncreaseFontSize_Click(object sender, EventArgs e)
@@ -54,6 +56,15 @@ namespace Ravenotes
 					FontSize.Text = defaultFontSize.ToString();
 				}
 			}
+		}
+		private void FontChoice_SelectionChangeCommitted(object sender, EventArgs e)
+		{
+			Input.Font = new Font(FontChoice.SelectedItem.ToString(), defaultFontSize);
+			this.ActiveControl = this.Input;
+		}
+		private void FontChoice_Click(object sender, EventArgs e)
+		{
+			FontChoice.DroppedDown = true;
 		}
 	}
 }
